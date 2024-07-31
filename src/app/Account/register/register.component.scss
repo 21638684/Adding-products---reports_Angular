@@ -1,0 +1,32 @@
+.container {
+  max-width: 800px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-gold {
+  color: green;
+}
+
+.btn-gold {
+  background-color:green;
+  color: #fff;
+}
+
+.btn-gold:hover {
+  background-color: #b9972b;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: green;
+  color: #000;
+}
+
+.form-control {
+  border: 1px solid green;
+}
+
+  

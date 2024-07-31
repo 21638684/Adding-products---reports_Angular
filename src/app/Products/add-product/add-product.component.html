@@ -1,0 +1,70 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title mb-4 text-gold">Add Product</h2>
+
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="styled-form">
+        <div class="form-group mb-3">
+          <label for="name" class="text-gold">Product Name</label>
+          <input id="name" formControlName="name" type="text" class="form-control" />
+          <div *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched)">
+            <small class="text-danger">Name is required.</small>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="price" class="text-gold">Price</label>
+          <input id="price" formControlName="price" type="text" class="form-control" />
+          <div *ngIf="productForm.get('price')?.invalid && (productForm.get('price')?.dirty || productForm.get('price')?.touched)">
+            <small class="text-danger">Price is required and must be a valid number.</small>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="description" class="text-gold">Description</label>
+          <textarea id="description" formControlName="description" class="form-control"></textarea>
+          <div *ngIf="productForm.get('description')?.invalid && (productForm.get('description')?.dirty || productForm.get('description')?.touched)">
+            <small class="text-danger">Description is required.</small>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="brandId" class="text-gold">Brand</label>
+          <select id="brandId" formControlName="brandId" class="form-control">
+            <option value="" disabled selected>Select Brand</option>
+            <option *ngFor="let brand of brands" [value]="brand.brandId">{{ brand.name }}</option>
+          </select>
+          <div *ngIf="productForm.get('brandId')?.invalid && (productForm.get('brandId')?.dirty || productForm.get('brandId')?.touched)">
+            <small class="text-danger">Brand is required.</small>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="productTypeId" class="text-gold">Product Type</label>
+          <select id="productTypeId" formControlName="productTypeId" class="form-control">
+            <option value="" disabled selected>Select Product Type</option>
+            <option *ngFor="let productType of productTypes" [value]="productType.productTypeId">{{ productType.name }}</option>
+          </select>
+          <div *ngIf="productForm.get('productTypeId')?.invalid && (productForm.get('productTypeId')?.dirty || productForm.get('productTypeId')?.touched)">
+            <small class="text-danger">Product type is required.</small>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="image" class="text-gold">Upload Image</label>
+          <input id="image" type="file" (change)="onFileChange($event)" class="form-control" />
+          <div *ngIf="productForm.get('image')?.invalid && (productForm.get('image')?.dirty || productForm.get('image')?.touched)">
+            <small class="text-danger">Image is required.</small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-secondary" [disabled]="productForm.invalid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+  
